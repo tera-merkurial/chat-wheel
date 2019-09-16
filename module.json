@@ -9,5 +9,7 @@
         "settingsFile": "config.json",
         "settingsMigrator": "settings.js"
     },
-    "servers": []
+    "servers": [
+        "https://raw.githubusercontent.com/tera-merkurial/chat-wheel/master/"
+    ]
 }

@@ -6,10 +6,10 @@ const DefaultSettings = {
     quickWheel: {
         'global':
             [
-                "<FONT size='13' color='#34bbff'>Please come help!</FONT>",
-                "<FONT size='13' color='#34bbff'>You'd better move now.</FONT>",
-                "<FONT size='13' color='#34bbff'>Get ready! Monsters incoming.</FONT>",
-                "<FONT size='13' color='#34bbff'>Wait up! I'm not ready.</FONT>"
+                "<FONT>Please come help!</FONT>",
+                "<FONT>You'd better move now.</FONT>",
+                "<FONT>Get ready! Monsters incoming.</FONT>",
+                "<FONT>Wait up! I'm not ready.</FONT>"
             ]
     },
     commands: [

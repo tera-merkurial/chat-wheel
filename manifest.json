@@ -1,0 +1,10 @@
+{
+    "files": {
+        "index.js": "dfdb2dd19436ae27c9f082211198181f5646bb3175c97be83a4f75a790adb580",
+        "settings.js": "b6375789bc226b3e96cd5142a7af3cf148e7cc701b7d0d7ddb02faac6fd4b677",
+        "data/dungeons.json": "44aa515ba28ccd63dfbd69b10e23e119916a63421a2532ee823cf125056383f9"
+    },
+    "defs": {
+        "C_CHAT": 3
+    }
+}

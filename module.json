@@ -1,0 +1,13 @@
+{
+    "name": "chat-wheel",
+    "author": "Merk",
+    "description": "",
+    "version": "0.0.1",
+    "options": {
+        "reloadable": true,
+        "settingsVersion": 1,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings.js"
+    },
+    "servers": []
+}

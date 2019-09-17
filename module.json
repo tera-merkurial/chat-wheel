@@ -2,7 +2,7 @@
     "name": "chat-wheel",
     "author": "Merk",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "options": {
         "reloadable": true,
         "settingsVersion": 1,

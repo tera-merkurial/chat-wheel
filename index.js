@@ -62,6 +62,8 @@ class ChatWheel {
                 return false
             }
 
+            var result = undefined
+
             // Replace message for the chat wheel one.
             // Check first for Dungeon/Character combination
             // then Character
@@ -71,20 +73,24 @@ class ChatWheel {
 
                 if (this.ShouldReplaceMessage(event.message, command) == true) {
                     event.message = `<FONT>${this.wheelPhrases[i]}</FONT>`
-
-                    // Elevate to raid message, need to check if we're in a raid
-                    if (this.settings.fixRaidQuickChat && this.inRaid) {
-                        event.channel = 32
-                    }
-
-                    // Elevate to raid notice, need to check if you're leader
-                    if (this.settings.enableNoticeWheel && this.isLeader) {
-                        event.channel = 25
-                    }
-
-                    return true
+                    result = true
+                    break;
                 }
             }
+
+            // Elevate to raid message, need to check if we're in a raid
+            if (this.settings.fixRaidQuickChat && this.inRaid) {
+                event.channel = 32
+                result = true
+            }
+
+            // Elevate to raid notice, need to check if you're leader
+            if (this.settings.enableNoticeWheel && this.isLeader) {
+                event.channel = 25
+                result = true
+            }
+
+            return result
         })
 
         /*

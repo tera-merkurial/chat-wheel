@@ -79,13 +79,13 @@ class ChatWheel {
             }
 
             // Elevate to raid message, need to check if we're in a raid
-            if (this.settings.fixRaidQuickChat && this.inRaid) {
+            if (this.settings.fixRaidQuickChat && this.inRaid && event.channel == 1) {
                 event.channel = 32
                 result = true
             }
 
             // Elevate to raid notice, need to check if you're leader
-            if (this.settings.enableNoticeWheel && this.isLeader) {
+            if (this.settings.enableNoticeWheel && this.isLeader && event.channel == 1) {
                 event.channel = 25
                 result = true
             }

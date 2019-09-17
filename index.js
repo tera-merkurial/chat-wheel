@@ -130,7 +130,7 @@ class ChatWheel {
                 // Initialize my config if doesn't exist
                 if (playerUid in this.mod.settings.quickWheel == false) {
                     this.mod.settings.quickWheel[playerUid] = {
-                        'global': this.mod.settings.quickWheel['global']
+                        'global': this.mod.settings.quickWheel['global'].slice()
                     }
                 }
 
@@ -140,7 +140,7 @@ class ChatWheel {
             case 'dungeon': {
                 // Initialize dungeon if doesn't exist
                 if (zone in this.mod.settings.quickWheel == false) {
-                    this.mod.settings.quickWheel[zone] = this.mod.settings.quickWheel['global']
+                    this.mod.settings.quickWheel[zone] = this.mod.settings.quickWheel['global'].slice()
                 }
 
                 this.mod.settings.quickWheel[zone][position] = message
@@ -150,13 +150,13 @@ class ChatWheel {
                 // Initialize my config
                 if (playerUid in this.mod.settings.quickWheel == false) {
                     this.mod.settings.quickWheel[playerUid] = {
-                        'global': this.mod.settings.quickWheel['global']
+                        'global': this.mod.settings.quickWheel['global'].slice()
                     }
                 }
 
                 // Initialize dungeon config
                 if (zone in this.mod.settings.quickWheel[playerUid] == false) {
-                    this.mod.settings.quickWheel[playerUid][zone] = this.mod.settings.quickWheel[playerUid]['global']
+                    this.mod.settings.quickWheel[playerUid][zone] = this.mod.settings.quickWheel[playerUid]['global'].slice()
                 }
 
                 this.mod.settings.quickWheel[playerUid][zone][position] = message

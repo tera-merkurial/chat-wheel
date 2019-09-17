@@ -25,7 +25,6 @@ class ChatWheel {
         this.wheelCommands = mod.settings.commands
 
         mod.game.me.on('change_zone', (zone, quick) => {
-            mod.log(`${mod.game.me.name} is changing zone to a ${mod.game.me.inDungeon ? 'dungeon' : 'normal map'} : ${zone}`)
             var playerName = mod.game.me.name
             var serverId = mod.game.me.serverId
             var playerUid = `${playerName}:${serverId}`
@@ -58,9 +57,6 @@ class ChatWheel {
         })
 
         mod.hook('C_CHAT', 1, event => {
-            mod.log(`${event.channel} : ${event.message}`)
-            mod.log(`${mod.game.me.serverId}:${mod.game.me.playerId}`)
-
             if (this.isRecording == true) {
                 this.UpdateConfig(this.recordType, this.recordPosition, event.message)
                 return false
@@ -72,8 +68,6 @@ class ChatWheel {
             // then Global
             for (var i = 0; i < this.wheelCommands.length; i++) {
                 var command = this.wheelCommands[i]
-                mod.log(command)
-                mod.log(event.message)
 
                 if (this.ShouldReplaceMessage(event.message, command) == true) {
                     event.message = `<FONT>${this.wheelPhrases[i]}</FONT>`
@@ -192,7 +186,6 @@ class ChatWheel {
 
     RecordCommand(...args) {
         if (args.length != 2) {
-            this.mod.log(args)
             this.ShowRecordCommandUsage()
             return
         }
@@ -218,7 +211,6 @@ class ChatWheel {
     }
 
     ShouldReplaceMessage(message, expected) {
-        this.mod.log(`${message} comparing to ${expected}`)
         if (Array.isArray(expected)) {
             if (expected.includes(message)) {
                 return true
@@ -246,8 +238,6 @@ class ChatWheel {
         var hasPlayerChat = playerUid in this.quickWheel
         var hasPlayerDungeonChat = hasPlayerChat ? zone in this.quickWheel[playerUid] : false
         var hasDungeonChat = zone in this.quickWheel
-
-        this.mod.log(`${hasPlayerChat} ${hasPlayerDungeonChat} ${hasDungeonChat}`)
 
         // Dungeon/Player specific chat
         if (hasPlayerDungeonChat) {

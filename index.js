@@ -74,20 +74,19 @@ class ChatWheel {
                 if (this.ShouldReplaceMessage(event.message, command) == true) {
                     event.message = `<FONT>${this.wheelPhrases[i]}</FONT>`
                     result = true
+
+                    // Elevate to raid message, need to check if we're in a raid
+                    if (this.settings.fixRaidQuickChat && this.inRaid && event.channel == 1) {
+                        event.channel = 32
+                    }
+
+                    // Elevate to raid notice, need to check if you're leader
+                    if (this.settings.enableNoticeWheel && this.isLeader && event.channel == 1) {
+                        event.channel = this.inRaid ? 25 : 21; // Raid notice is channel 25, party notice 21.
+                    }
+
                     break;
                 }
-            }
-
-            // Elevate to raid message, need to check if we're in a raid
-            if (this.settings.fixRaidQuickChat && this.inRaid && event.channel == 1) {
-                event.channel = 32
-                result = true
-            }
-
-            // Elevate to raid notice, need to check if you're leader
-            if (this.settings.enableNoticeWheel && this.isLeader && event.channel == 1) {
-                event.channel = this.inRaid ? 25 : 21; // Raid notice is channel 25, party notice 21.
-                result = true
             }
 
             return result

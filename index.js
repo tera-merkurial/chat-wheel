@@ -86,7 +86,7 @@ class ChatWheel {
 
             // Elevate to raid notice, need to check if you're leader
             if (this.settings.enableNoticeWheel && this.isLeader && event.channel == 1) {
-                event.channel = 25
+                event.channel = this.inRaid ? 25 : 21; // Raid notice is channel 25, party notice 21.
                 result = true
             }
 

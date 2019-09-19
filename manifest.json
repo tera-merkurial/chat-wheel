@@ -1,8 +1,9 @@
 {
     "files": {
-        "index.js": "11ac366345ea91a9ce3c282ae1b23a5dbfb766d9df2da80ba281d9f6fffff562",
+        "index.js": "7ccd72bb758163d9709f50e2a871e652a7a76f7b9ff65fd4f317eb337e8b65dd",
         "settings.js": "67793059e16d0cb63f7432304bfc4cb67ab18d201787ddb449486f8615f88014",
-        "data/dungeons.json": "44aa515ba28ccd63dfbd69b10e23e119916a63421a2532ee823cf125056383f9"
+        "data/dungeons.json": "44aa515ba28ccd63dfbd69b10e23e119916a63421a2532ee823cf125056383f9",
+        "libs/game-state.party.js": "44819ecac75c7612eac32553c38d6ff25cc5ce1bbbadcfc9c400e0ea98484e07"
     },
     "defs": {
         "C_CHAT": 3

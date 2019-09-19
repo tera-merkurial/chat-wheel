@@ -9,6 +9,8 @@ const positionNames = {
     'bottom': 3
 }
 
+const PartyState = require('libs/game-state.party')
+
 class ChatWheel {
     constructor(mod) {
         this.mod = mod
@@ -18,11 +20,11 @@ class ChatWheel {
         this.recordPosition = 0
         this.settings = mod.settings
         this.quickWheel = this.settings.quickWheel
-        this.inRaid = false
-        this.isLeader = false
 
         this.wheelPhrases = mod.settings.quickWheel['global']
         this.wheelCommands = mod.settings.commands
+
+        this.partyState = new PartyState(mod);
 
         mod.game.me.on('change_zone', (zone, quick) => {
             var playerName = mod.game.me.name
@@ -36,24 +38,6 @@ class ChatWheel {
                 this.mod.command.message(`Phrases changed for ${zone in dungeonNames ? dungeonNames[zone] : 'current zone'}`)
                 this.ShowCurrentChatWheel()
             }
-        })
-
-        mod.hook('S_PARTY_MEMBER_LIST', 7, event => {
-            this.inRaid = event.raid
-            var sameServer = event.leaderServerId == this.mod.game.me.serverId
-            var samePlayerId = event.leaderPlayerId == this.mod.game.me.playerId
-            this.isLeader = sameServer && samePlayerId
-        })
-
-        mod.hook('S_CHANGE_PARTY_MANAGER', 2, event => {
-            var sameServer = event.serverId == this.mod.game.me.serverId
-            var samePlayerId = event.playerId == this.mod.game.me.playerId
-            this.isLeader = sameServer && samePlayerId
-        })
-
-        mod.hook('S_LEAVE_PARTY', 1, event => {
-            this.inRaid = false
-            this.isLeader = false
         })
 
         mod.hook('C_CHAT', 1, event => {
@@ -76,13 +60,13 @@ class ChatWheel {
                     result = true
 
                     // Elevate to raid message, need to check if we're in a raid
-                    if (this.settings.fixRaidQuickChat && this.inRaid && event.channel == 1) {
+                    if (this.settings.fixRaidQuickChat && this.partyState.inRaid && event.channel == 1) {
                         event.channel = 32
                     }
 
                     // Elevate to raid notice, need to check if you're leader
-                    if (this.settings.enableNoticeWheel && this.isLeader && event.channel == 1) {
-                        event.channel = this.inRaid ? 25 : 21; // Raid notice is channel 25, party notice 21.
+                    if (this.settings.enableNoticeWheel && this.partyState.isLeader && event.channel == 1) {
+                        event.channel = this.partyState.inRaid ? 25 : 21; // Raid notice is channel 25, party notice 21.
                     }
 
                     break;

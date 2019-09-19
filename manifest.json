@@ -3,7 +3,7 @@
         "index.js": "289b57465daa9463222850ce2c4b535398010397624f8ce06e77c7d27caaf283",
         "settings.js": "67793059e16d0cb63f7432304bfc4cb67ab18d201787ddb449486f8615f88014",
         "data/dungeons.json": "44aa515ba28ccd63dfbd69b10e23e119916a63421a2532ee823cf125056383f9",
-        "libs/game-state.party.js": "18e7365f21f0531e0dc3b21c2b3723a284d4685d9e435683fe471694350042bf"
+        "libs/game-state.party.js": "815931f6763e32eba500592b177eea87770e3489215bda619ac4d4e2fd774183"
     },
     "defs": {
         "C_CHAT": 3

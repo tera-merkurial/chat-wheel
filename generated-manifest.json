@@ -1,0 +1,13 @@
+{
+  "files": {
+    "index.js": "289b57465daa9463222850ce2c4b535398010397624f8ce06e77c7d27caaf283",
+    "manifest.json": "3c3efe2550e9dd4ca16f132be590fdbcae16862a53f7bf5cb5fdeb2df2560307",
+    "module.json": "d48ef0146530f70718ef452883b924fc39b660bd51c76c1a45c64882f9bef5b2",
+    "Newtonsoft.Json.dll": "564e6201dbf6354460d9ca180f0752d50dd7496fff49e05f67a9af42a2e772c7",
+    "README.md": "a7d7c40cb5890e80655729c288c2ddfad80ba0c08990755e753e61e808a9d50d",
+    "settings.js": "67793059e16d0cb63f7432304bfc4cb67ab18d201787ddb449486f8615f88014",
+    "shagen.js": "699311f29bce20764bb264a3886178dc833e76cc8cba186680331bf1abd0a772",
+    "data/dungeons.json": "44aa515ba28ccd63dfbd69b10e23e119916a63421a2532ee823cf125056383f9",
+    "libs/game-state.party.js": "78bc4dfa4de8db2d41399c80b28cbd285bc925871a24b70e090f32e8aa331d29"
+  }
+}

@@ -29,7 +29,7 @@ class Party {
             this.isLeader = false;
         })
 
-        this.installHook(mod, 'S_RETURN_TO_LOBBY', 'raw', (event) => {
+        this.mod.hook(mod, 'S_RETURN_TO_LOBBY', 'raw', (event) => {
             this.Reset();
         })
     }

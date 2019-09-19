@@ -9,7 +9,7 @@ const positionNames = {
     'bottom': 3
 }
 
-const PartyState = require('libs/game-state.party')
+const PartyState = require('./libs/game-state.party')
 
 class ChatWheel {
     constructor(mod) {
